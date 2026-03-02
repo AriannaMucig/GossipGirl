@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="it" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gossip Girl</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { height: 100%; margin: 0; }
+    .gossip-font { font-family: 'Playfair Display', Georgia, serif; }
+    .body-font { font-family: 'Cormorant Garamond', Georgia, serif; }
+    
+    .gold-shimmer {
+      background: linear-gradient(135deg, #d4af37 0%, #f4e4bc 50%, #d4af37 100%);
+      background-size: 200% 200%;
+      animation: shimmer 3s ease-in-out infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+      50% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.6); }
+    }
+    
+    .fade-in { animation: fadeInUp 0.8s ease-out forwards; }
+    .fade-in-delay-1 { animation-delay: 0.2s; opacity: 0; }
+    .fade-in-delay-2 { animation-delay: 0.4s; opacity: 0; }
+    .fade-in-delay-3 { animation-delay: 0.6s; opacity: 0; }
+    .fade-in-delay-4 { animation-delay: 0.8s; opacity: 0; }
+    
+    .gossip-card {
+      background: linear-gradient(145deg, #1a1a1a 0%, #0d0d0d 100%);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .gossip-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(212, 175, 55, 0.6);
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+    
+    .crown-icon {
+      filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.5));
+    }
+    
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    }
+    
+    .lips-btn {
+      transition: all 0.3s ease;
+    }
+    
+    .lips-btn:hover {
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 10px rgba(139, 0, 0, 0.8));
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full bg-black text-white overflow-auto">
+  <div id="app-wrapper" class="min-h-full w-full" style="background: radial-gradient(ellipse at top, #1a1a1a 0%, #000000 50%, #0a0a0a 100%);"><!-- Decorative Top Border -->
+   <div class="w-full h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent"></div><!-- Header -->
+   <header class="relative py-12 px-4 text-center">
+    <div class="fade-in"><!-- Crown SVG -->
+     <svg class="crown-icon w-16 h-16 mx-auto mb-4" viewbox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 48L16 20L32 32L48 20L56 48H8Z" fill="url(#goldGradient)" stroke="#d4af37" stroke-width="2" /> <circle cx="16" cy="20" r="4" fill="#d4af37" /> <circle cx="32" cy="12" r="5" fill="#d4af37" /> <circle cx="48" cy="20" r="4" fill="#d4af37" /> <rect x="8" y="48" width="48" height="6" rx="1" fill="url(#goldGradient)" /> <defs>
+       <lineargradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#d4af37" />
+        <stop offset="50%" stop-color="#f4e4bc" />
+        <stop offset="100%" stop-color="#d4af37" />
+       </lineargradient>
+      </defs>
+     </svg>
+     <h1 id="site-title" class="gossip-font text-5xl md:text-7xl font-bold gold-shimmer tracking-wider">Gossip Girl</h1>
+     <p id="tagline" class="body-font text-xl md:text-2xl text-amber-200/80 mt-4 italic tracking-wide">Your one and only source into the scandalous lives of Manhattan's elite</p>
+    </div>
+    <div class="divider w-3/4 mx-auto mt-8"></div>
+   </header><!-- Navigation -->
+   <nav class="flex justify-center gap-8 py-6 fade-in fade-in-delay-1"><a href="#" class="gossip-font text-amber-400 hover:text-amber-200 transition-colors tracking-widest text-sm uppercase">Spotted</a> <span class="text-amber-600">♦</span> <a href="#" class="gossip-font text-amber-400 hover:text-amber-200 transition-colors tracking-widest text-sm uppercase">Scandals</a> <span class="text-amber-600">♦</span> <a href="#" class="gossip-font text-amber-400 hover:text-amber-200 transition-colors tracking-widest text-sm uppercase">Elite</a> <span class="text-amber-600">♦</span> <a href="#" class="gossip-font text-amber-400 hover:text-amber-200 transition-colors tracking-widest text-sm uppercase">Tips</a>
+   </nav><!-- Featured Story -->
+   <section class="px-4 md:px-8 py-8 max-w-6xl mx-auto">
+    <div class="gossip-card rounded-lg overflow-hidden fade-in fade-in-delay-2">
+     <div class="relative"><!-- Featured Image Placeholder with Gradient -->
+      <div class="h-64 md:h-96 bg-gradient-to-br from-amber-900/30 via-black to-purple-900/20 flex items-center justify-center relative overflow-hidden">
+       <div class="absolute inset-0 opacity-20">
+        <svg class="w-full h-full" viewbox="0 0 100 100" preserveaspectratio="none"><pattern id="cityPattern" patternunits="userSpaceOnUse" width="20" height="20">
+          <rect x="2" y="8" width="4" height="12" fill="#d4af37" opacity="0.3" />
+          <rect x="8" y="4" width="3" height="16" fill="#d4af37" opacity="0.2" />
+          <rect x="14" y="6" width="4" height="14" fill="#d4af37" opacity="0.25" />
+         </pattern> <rect width="100" height="100" fill="url(#cityPattern)" />
+        </svg>
+       </div>
+       <div class="text-center z-10"><span class="text-6xl">👑</span>
+        <p class="gossip-font text-amber-400 mt-4 text-lg tracking-widest">BREAKING NEWS</p>
+       </div>
+      </div><!-- Red Lips Badge -->
+      <div class="absolute top-4 right-4 lips-btn cursor-pointer">
+       <svg width="48" height="48" viewbox="0 0 48 48" fill="none"><path d="M24 40C24 40 4 28 4 18C4 12 10 8 16 12C20 15 24 20 24 20C24 20 28 15 32 12C38 8 44 12 44 18C44 28 24 40 24 40Z" fill="#8B0000" stroke="#ff0000" stroke-width="1" /> <ellipse cx="24" cy="24" rx="8" ry="4" fill="#a00000" />
+       </svg>
+      </div>
+     </div>
+     <div class="p-6 md:p-10"><span class="text-amber-500 text-xs tracking-[0.3em] uppercase body-font">Exclusive • Upper East Side</span>
+      <h2 id="featured-title" class="gossip-font text-2xl md:text-4xl font-semibold text-white mt-3 leading-tight">Spotted: Queen B and S Reunited at The Met Steps — But Who's The Mystery Man?</h2>
+      <p class="body-font text-gray-300 mt-4 text-lg leading-relaxed">Looks like our favorite Upper East Siders are back to their old haunts. But wait — is that a new face in their inner circle? Sources say he arrived in a black town car and was seen whispering something that made even Blair Waldorf blush. Curious? So am I...</p>
+      <div class="flex items-center justify-between mt-6 pt-6 border-t border-amber-900/30"><span class="text-amber-600/60 text-sm body-font italic">2 hours ago</span> <button class="gossip-font text-amber-400 hover:text-amber-200 transition-colors text-sm tracking-widest flex items-center gap-2"> READ MORE <span class="text-lg">→</span> </button>
+      </div>
+     </div>
+    </div>
+   </section><!-- Latest Gossip Grid -->
+   <section class="px-4 md:px-8 py-8 max-w-6xl mx-auto">
+    <h3 class="gossip-font text-2xl text-amber-400 text-center mb-8 tracking-widest fade-in fade-in-delay-3">~ LATEST SIGHTINGS ~</h3>
+    <div class="grid md:grid-cols-3 gap-6"><!-- Card 1 -->
+     <article class="gossip-card rounded-lg p-6 fade-in fade-in-delay-3">
+      <div class="text-4xl mb-4">
+       🥂
+      </div><span class="text-amber-600 text-xs tracking-widest uppercase">Palace Hotel</span>
+      <h4 class="gossip-font text-lg text-white mt-2 font-semibold">Chuck Bass Closes Another Deal — But At What Cost?</h4>
+      <p class="body-font text-gray-400 mt-3 text-sm leading-relaxed">Empire Industries just acquired yet another Manhattan landmark. But the real story? The look on his face when she walked in...</p>
+      <div class="divider my-4"></div><span class="text-amber-700 text-xs body-font">5 hours ago</span>
+     </article><!-- Card 2 -->
+     <article class="gossip-card rounded-lg p-6 fade-in fade-in-delay-3">
+      <div class="text-4xl mb-4">
+       💎
+      </div><span class="text-amber-600 text-xs tracking-widest uppercase">Bergdorf's</span>
+      <h4 class="gossip-font text-lg text-white mt-2 font-semibold">Little J's Fashion Line Launch — A Comeback or A Disaster?</h4>
+      <p class="body-font text-gray-400 mt-3 text-sm leading-relaxed">Jenny Humphrey is back in town with bold designs and even bolder ambitions. Will the Queen approve?</p>
+      <div class="divider my-4"></div><span class="text-amber-700 text-xs body-font">8 hours ago</span>
+     </article><!-- Card 3 -->
+     <article class="gossip-card rounded-lg p-6 fade-in fade-in-delay-3">
+      <div class="text-4xl mb-4">
+       📱
+      </div><span class="text-amber-600 text-xs tracking-widest uppercase">Brooklyn</span>
+      <h4 class="gossip-font text-lg text-white mt-2 font-semibold">Lonely Boy's New Novel — Fiction or Thinly Veiled Truth?</h4>
+      <p class="body-font text-gray-400 mt-3 text-sm leading-relaxed">Dan Humphrey's latest manuscript has publishers fighting. What secrets will he reveal this time?</p>
+      <div class="divider my-4"></div><span class="text-amber-700 text-xs body-font">12 hours ago</span>
+     </article>
+    </div>
+   </section><!-- Submit a Tip Section -->
+   <section class="px-4 md:px-8 py-12 max-w-2xl mx-auto text-center fade-in fade-in-delay-4">
+    <div class="gossip-card rounded-lg p-8">
+     <h3 class="gossip-font text-2xl text-amber-400 tracking-wider mb-4">Got a Tip?</h3>
+     <p class="body-font text-gray-400 mb-6 italic">"The best secrets are the ones that are shared... anonymously."</p>
+     <div class="flex gap-3"><input type="text" placeholder="Spill the tea, Upper East Siders..." class="flex-1 bg-black/50 border border-amber-900/50 rounded-lg px-4 py-3 text-white body-font placeholder:text-gray-600 focus:outline-none focus:border-amber-500 transition-colors"> <button class="bg-gradient-to-r from-amber-700 to-amber-600 hover:from-amber-600 hover:to-amber-500 text-black gossip-font font-semibold px-6 py-3 rounded-lg transition-all tracking-wider"> SEND </button>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="py-12 text-center border-t border-amber-900/20">
+    <div class="divider w-1/2 mx-auto mb-8"></div><!-- Lips Icon -->
+    <svg class="w-12 h-12 mx-auto mb-4 lips-btn cursor-pointer" viewbox="0 0 48 48" fill="none"><path d="M24 40C24 40 4 28 4 18C4 12 10 8 16 12C20 15 24 20 24 20C24 20 28 15 32 12C38 8 44 12 44 18C44 28 24 40 24 40Z" fill="#8B0000" stroke="#ff0000" stroke-width="1" /> <ellipse cx="24" cy="24" rx="8" ry="4" fill="#a00000" />
+    </svg>
+    <p id="signature" class="gossip-font text-2xl gold-shimmer tracking-widest">XOXO, Gossip Girl</p>
+    <p class="body-font text-amber-800 mt-4 text-sm italic">"You know you love me."</p>
+    <div class="flex justify-center gap-6 mt-8"><span class="text-amber-700 hover:text-amber-500 transition-colors cursor-pointer text-xl">📸</span> <span class="text-amber-700 hover:text-amber-500 transition-colors cursor-pointer text-xl">🐦</span> <span class="text-amber-700 hover:text-amber-500 transition-colors cursor-pointer text-xl">💌</span>
+    </div>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      site_title: 'Gossip Girl',
+      tagline: "Your one and only source into the scandalous lives of Manhattan's elite",
+      featured_title: "Spotted: Queen B and S Reunited at The Met Steps — But Who's The Mystery Man?",
+      signature: 'XOXO, Gossip Girl',
+      background_color: '#000000',
+      surface_color: '#1a1a1a',
+      text_color: '#ffffff',
+      primary_action_color: '#d4af37',
+      secondary_action_color: '#b8860b',
+      font_family: 'Playfair Display',
+      font_size: 16
+    };
+    
+    async function onConfigChange(config) {
+      // Update text content
+      document.getElementById('site-title').textContent = config.site_title || defaultConfig.site_title;
+      document.getElementById('tagline').textContent = config.tagline || defaultConfig.tagline;
+      document.getElementById('featured-title').textContent = config.featured_title || defaultConfig.featured_title;
+      document.getElementById('signature').textContent = config.signature || defaultConfig.signature;
+      
+      // Update colors
+      const bgColor = config.background_color || defaultConfig.background_color;
+      const surfaceColor = config.surface_color || defaultConfig.surface_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const primaryColor = config.primary_action_color || defaultConfig.primary_action_color;
+      const secondaryColor = config.secondary_action_color || defaultConfig.secondary_action_color;
+      
+      document.body.style.backgroundColor = bgColor;
+      document.getElementById('app-wrapper').style.background = `radial-gradient(ellipse at top, ${surfaceColor} 0%, ${bgColor} 50%, ${bgColor} 100%)`;
+      
+      // Update text colors
+      document.querySelectorAll('.text-white').forEach(el => {
+        el.style.color = textColor;
+      });
+      
+      // Update accent colors
+      document.querySelectorAll('.text-amber-400, .text-amber-500').forEach(el => {
+        el.style.color = primaryColor;
+      });
+      
+      document.querySelectorAll('.text-amber-600, .text-amber-700').forEach(el => {
+        el.style.color = secondaryColor;
+      });
+      
+      // Update fonts
+      const fontFamily = config.font_family || defaultConfig.font_family;
+      const fontSize = config.font_size || defaultConfig.font_size;
+      
+      document.querySelectorAll('.gossip-font').forEach(el => {
+        el.style.fontFamily = `${fontFamily}, Georgia, serif`;
+      });
+      
+      document.querySelectorAll('.body-font').forEach(el => {
+        el.style.fontFamily = `Cormorant Garamond, ${fontFamily}, Georgia, serif`;
+      });
+      
+      // Scale font sizes proportionally
+      document.getElementById('site-title').style.fontSize = `${fontSize * 4}px`;
+      document.getElementById('tagline').style.fontSize = `${fontSize * 1.5}px`;
+      document.getElementById('featured-title').style.fontSize = `${fontSize * 2}px`;
+      document.getElementById('signature').style.fontSize = `${fontSize * 1.5}px`;
+    }
+    
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => { config.background_color = value; window.elementSdk.setConfig({ background_color: value }); }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => { config.surface_color = value; window.elementSdk.setConfig({ surface_color: value }); }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => { config.text_color = value; window.elementSdk.setConfig({ text_color: value }); }
+          },
+          {
+            get: () => config.primary_action_color || defaultConfig.primary_action_color,
+            set: (value) => { config.primary_action_color = value; window.elementSdk.setConfig({ primary_action_color: value }); }
+          },
+          {
+            get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+            set: (value) => { config.secondary_action_color = value; window.elementSdk.setConfig({ secondary_action_color: value }); }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => { config.font_family = value; window.elementSdk.setConfig({ font_family: value }); }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => { config.font_size = value; window.elementSdk.setConfig({ font_size: value }); }
+        }
+      };
+    }
+    
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['site_title', config.site_title || defaultConfig.site_title],
+        ['tagline', config.tagline || defaultConfig.tagline],
+        ['featured_title', config.featured_title || defaultConfig.featured_title],
+        ['signature', config.signature || defaultConfig.signature]
+      ]);
+    }
+    
+    // Initialize SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d623437a668ee60',t:'MTc3MjQ3MzQwOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
